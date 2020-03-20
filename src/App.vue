@@ -7,12 +7,25 @@
 </template>
 
 <script>
-import TheNavigation from '@/components/TheNavigation.vue'
-import TheFooter from '@/components/TheFooter.vue'
+import TheNavigation from "@/components/TheNavigation.vue";
+import TheFooter from "@/components/TheFooter.vue";
 export default {
-  components:{
+  components: {
     TheNavigation,
     TheFooter
+  },
+  mounted() {
+    let prevScrollpos = window.pageYOffset;
+
+    window.addEventListener("scroll",() => {
+      let currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos - 1) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-80px";
+      }
+      prevScrollpos = currentScrollPos;
+    });
   }
-}
+};
 </script>
