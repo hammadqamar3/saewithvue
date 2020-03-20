@@ -1,48 +1,48 @@
 <template>
   <main id="main">
-      <div id="cars-index">
-    <!-- header -->
-    <section id="cars-head">
-      <div class="text-block">
-        <h1>OUR RACING CARS</h1>
-      </div>
-    </section>
-    <!-- End of header -->
+    <div id="cars-index">
+      <!-- header -->
+      <section id="cars-head">
+        <div class="text-block">
+          <h1>OUR RACING CARS</h1>
+        </div>
+      </section>
+      <!-- End of header -->
 
-    <!-- Cars of Sae Zhcet -->
-    <!-- <div class="container"> -->
-    <section id="cars-sae">
-      <div class="row">
-        <div class="col-md-6 col-sm-12" v-for="car in cars" :key="car.id">
-          <div class="image-box">
-            <router-link :to="{ name:'CarModel', params:{ carName:car.name }}">
-              <img :src="require(`@/assets/images/car_images/${car.image}`)" />
-            </router-link>
+      <!-- Cars of Sae Zhcet -->
+      <!-- <div class="container"> -->
+      <section id="cars-sae">
+        <div class="row">
+          <div class="col-md-6 col-sm-12" v-for="car in cars" :key="car.id">
+            <div class="image-box">
+              <router-link :to="{ name:'CarModel', params:{ carName:car.name }}">
+                <img :src="require(`@/assets/images/car_images/${car.image}`)" />
+              </router-link>
+            </div>
+            <div class="name name-center">
+              <router-link :to="{ name:'CarModel',params:{ carName:car.name }}">
+                <h2>{{ car.name }}</h2>
+              </router-link>
+            </div>
           </div>
-          <div class="name name-center">
-            <router-link :to="{ name:'CarModel',params:{ carName:car.name }}">
-              <h2>{{ car.name }}</h2>
-            </router-link>
+        </div>
+      </section>
+      <!-- </div> -->
+      <!-- End of cars of Sae Zhcet -->
+      <div class="container">
+        <div class="row sponsor">
+          <div class="col-md-6" v-for="(sponsor,index) in sponsors" :key="index">
+            <img :src="sponsor" width="100%" height="100%" />
           </div>
         </div>
       </div>
-    </section>
-    <!-- </div> -->
-    <!-- End of cars of Sae Zhcet -->
-    <div class="container">
-      <div class="row sponsor">
-        <div class="col-md-6" v-for="(sponsor,index) in sponsors" :key="index">
-          <img :src="sponsor" width="100%" height="100%" />
-        </div>
-      </div>
-    </div>
 
-    <div id="sidecar">
-      <img src="../assets/images/car_images/car.png" alt />
-    </div>
-    <div id="sidecar-path">
-      <img id="path" src="../assets/images/car_images/path.jpg" alt />
-    </div>
+      <div id="sidecar" :style="car">
+        <img src="../assets/images/car_images/car.png" alt />
+      </div>
+      <div id="sidecar-path">
+        <img id="path" src="../assets/images/car_images/path.jpg" alt />
+      </div>
     </div>
   </main>
 </template>
@@ -50,28 +50,39 @@
 <script>
 export default {
   mounted() {
-    let car = document.getElementById("sidecar").style;
-    let height_main = document.getElementById("main").clientHeight;
-    document.getElementById("path").style.height = height_main;
-    var pScrollpos = window.pageYOffset;
-    var distance = 200;
-
-    window.onscroll = () => {
+    this.carAnimation();
+    this.bodyHeight = document.getElementById("main").clientHeight;
+    document.getElementById("path").style.height = this.bodyHeight
+    document.addEventListener("scroll", this.carAnimation);
+  },
+  beforeDestroy() {
+    document.removeEventListener("scroll", this.carAnimation);
+  },
+  methods: {
+    carAnimation() {
       var cScrollPos = window.pageYOffset;
-      if (cScrollPos < height_main+200) {
-        distance += cScrollPos - pScrollpos;
-        if (cScrollPos < pScrollpos) {
-          document.getElementById("sidecar").style.transform = "rotate(270deg)";
-        } else {
-          document.getElementById("sidecar").style.transform = "rotate(90deg)";
+      if (cScrollPos < this.bodyHeight + 100) {
+        this.distance += cScrollPos - this.pScrollpos;
+        if (document.getElementById("sidecar")) {
+          if (cScrollPos < this.pScrollpos) {
+            document.getElementById("sidecar").style.transform =
+              "rotate(270deg)";
+          } else {
+            document.getElementById("sidecar").style.transform =
+              "rotate(90deg)";
+          }
         }
-        pScrollpos = cScrollPos;
+        this.pScrollpos = cScrollPos;
       }
-      car.top = distance + "px";
-    };
+      this.car = { top: this.distance + "px" };
+    }
   },
   data() {
     return {
+      distance:200,
+      bodyHeight:null,
+      pScrollpos:0,
+      car: null,
       cars: [
         {
           image: "zfr1.jpg",
@@ -104,7 +115,7 @@ export default {
           id: 5
         },
         {
-          image:"coming_soon.jpg",
+          image: "coming_soon.jpg",
           link: "cars/zfr-5.0",
           name: "ZFR 5.0",
           id: 6
@@ -136,7 +147,8 @@ export default {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-main, main>div{
+main,
+main > div {
   position: relative;
   padding: 1px 0;
 }
@@ -151,9 +163,9 @@ main, main>div{
   cursor: default;
 }
 #cars-head {
-    margin-top: 56px;
-    position: relative;
-    z-index: 1;
+  margin-top: 56px;
+  position: relative;
+  z-index: 1;
   background-color: #000000;
   margin-bottom: 2%;
 }
@@ -161,7 +173,6 @@ main, main>div{
   text-align: center;
 }
 .image-box img {
-  border-radius: 50%;
   width: 50%;
 }
 .spec img {
@@ -169,7 +180,8 @@ main, main>div{
   width: 56%;
 }
 
-.row, .col-md-6 {
+.row,
+.col-md-6 {
   padding: 1%;
   margin-bottom: 5%;
   max-width: 100vw !important;
@@ -180,8 +192,8 @@ main, main>div{
   padding: 2%;
 }
 .name-center {
-  position: relative;
-  top: -50%;
+  background-color: white;
+  color: black;
 }
 .name {
   text-align: center;
@@ -198,7 +210,7 @@ main, main>div{
 }
 .name a {
   text-decoration: none;
-  color: white;
+  /* color: white; */
 }
 .name a h2 {
   font-size: 2.2em;
@@ -307,7 +319,6 @@ tr:nth-child(even) {
   .text-block h1 {
     font-size: 11vw;
   }
-  
 }
 @media (min-width: 500px) and (max-width: 768px) {
   .text-block h1 {
@@ -325,8 +336,8 @@ tr:nth-child(even) {
   #sidecar-path img {
     height: 2400px;
   }
-  #cars-head{
-      margin-top: 64px;
+  #cars-head {
+    margin-top: 64px;
   }
 }
 @media screen and (min-width: 1024px) and (max-width: 1100px) {

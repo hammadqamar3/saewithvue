@@ -23,7 +23,7 @@
         </div>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" @click="closeTheNav">
           <li class="nav-item" v-for="item in navList" :key="item.name">
             <router-link class="nav-link" :to="{ name:item.link}">
               <img :src="require(`@/assets/icons/nav_icons/${item.icon}`)" class="nav-icons" />
@@ -32,7 +32,7 @@
           </li>
 
           <li class="nav-item dropdown" id="donation">
-            <router-link
+            <div
               class="nav-link dropdown-toggle"
               :to="{ name:'Donation'}"
               id="navbarDropdownMenuLink"
@@ -42,7 +42,7 @@
             >
               <img src="../assets/icons/nav_icons/rupee.svg" class="nav-icons" />
               <span>S</span>upport
-            </router-link>
+            </div>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <router-link class="dropdown-item" :to="{ name:'Donation' }">Support Us</router-link>
               <router-link class="dropdown-item" :to="{ name:'Sponsors' }">Our Sponsors</router-link>
@@ -91,6 +91,9 @@ export default {
   methods: {
     toggleHamburger() {
       this.openClass = !this.openClass;
+    },
+    closeTheNav(){
+      document.getElementById("nav-icon2").click()
     }
   }
 };
