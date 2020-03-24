@@ -53,7 +53,6 @@ export default {
   mounted() {
     this.carAnimation();
     this.bodyHeight = document.getElementById("cars-index").clientHeight;
-    console.log(this.bodyHeight)
     document.getElementById("path").style.height = this.bodyHeight
     document.addEventListener("scroll", this.carAnimation);
   },
