@@ -30,6 +30,7 @@
       <!-- </div> -->
       <!-- End of cars of Sae Zhcet -->
       <div class="container">
+        <h2 class="text-block">Gold Sponsors</h2>
         <div class="row sponsor">
           <div class="col-md-6" v-for="(sponsor,index) in sponsors" :key="index">
             <img :src="sponsor" width="100%" height="100%" />
@@ -51,7 +52,8 @@
 export default {
   mounted() {
     this.carAnimation();
-    this.bodyHeight = document.getElementById("main").clientHeight;
+    this.bodyHeight = document.getElementById("cars-index").clientHeight;
+    console.log(this.bodyHeight)
     document.getElementById("path").style.height = this.bodyHeight
     document.addEventListener("scroll", this.carAnimation);
   },
@@ -134,17 +136,7 @@ export default {
 
 <style scoped>
 #cars-index {
-  background: #bdc3c7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #2c3e50,
-    #bdc3c7
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #2c3e50,
-    #bdc3c7
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #cccccc; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 main,
@@ -157,6 +149,9 @@ main > div {
   text-align: center;
   background-color: black;
 }
+h2.text-block{
+  padding: 12px;
+}
 .text-block h1 {
   font-family: "Open Sans";
   font-size: 400%;
@@ -166,7 +161,7 @@ main > div {
   margin-top: 56px;
   position: relative;
   z-index: 1;
-  background-color: #000000;
+  background-color: #000;
   margin-bottom: 2%;
 }
 .image-box {
@@ -188,8 +183,12 @@ main > div {
 }
 .sponsor .col-md-6 {
   margin-bottom: 0px;
-  height: 56vh;
+  height: 50vh;
   padding: 2%;
+}
+.sponsor .col-md-6 img{
+  box-shadow: 0 0 12px 0 black;
+  /* transform: rotateY(80deg) rotateZ(-25deg) ; */
 }
 .name-center {
   background-color: white;
@@ -198,8 +197,11 @@ main > div {
 .name {
   text-align: center;
   color: purple;
-  margin-top: 1.5%;
+  margin: auto;
+  padding: 12px;
   margin-bottom: 5%;
+  width:50%;
+
 }
 .name h1 {
   text-decoration: none;
@@ -215,6 +217,7 @@ main > div {
 .name a h2 {
   font-size: 2.2em;
   font-weight: bolder;
+  color: #000;
 }
 
 .col-md-6 h1 {
@@ -237,7 +240,7 @@ th {
   /* overflow-wrap: break-word; */
 }
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #ddd;
 }
 .head-td {
   font-weight: bold;
@@ -296,35 +299,25 @@ tr:nth-child(even) {
   width: 55px;
 }
 
-/* media query our racig car header   */
-@media (max-width: 400px) {
-  .text-block h1 {
-    font-family: "Open Sans";
-    font-size: 8vw;
-    cursor: default;
-  }
-}
 
-@media (min-width: 401px) and (max-width: 500px) {
-  .text-block h1 {
-    font-family: "Open Sans";
-    font-size: 8vw;
-    cursor: default;
-  }
-}
+
 @media (max-width: 500px) {
+  .text-block h1 {
+    font-size: 10vw;
+  }
   .spec img {
     width: 80%;
   }
-  .text-block h1 {
-    font-size: 11vw;
+  #cars-sae .row{
+    margin:0;
+  }
+  #cars-sae .col-md-6 img,#cars-sae .col-md-6 .name-center{
+    width: 90% !important;
   }
 }
 @media (min-width: 500px) and (max-width: 768px) {
   .text-block h1 {
-    font-family: "Open Sans";
     font-size: 9vw;
-    cursor: default;
   }
 }
 @media screen and (min-width: 1024px) {
