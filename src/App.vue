@@ -19,7 +19,7 @@ export default {
 
     window.addEventListener("scroll",() => {
       let currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos - 1) {
+      if (prevScrollpos > currentScrollPos - 1 || currentScrollPos<100) {
         document.getElementById("navbar").style.top = "0";
       } else {
         document.getElementById("navbar").style.top = "-80px";
