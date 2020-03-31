@@ -1,20 +1,12 @@
 <template>
   <main>
-    <section id="cars-head">
-      <div class="text-block">
-        <h1>OUR RACING CARS</h1>
-      </div>
-    </section>
-
-    <section id="cars-sae">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="image-box spec">
-            <img :src="require(`@/assets/images/car_images/${car.image}`)" />
-          </div>
-          <div class="name">
-            <h1>{{  car.name }}</h1>
-          </div>
+    <section>
+      <div class="col-md-12">
+        <div class="image-box">
+          <img :src="require(`@/assets/images/car_images/${car.image}`)" />
+        </div>
+        <div class="name">
+          <h1>{{ car.name }}</h1>
         </div>
       </div>
     </section>
@@ -24,35 +16,30 @@
         <div class="row">
           <div class="col-md-6">
             <h1>CAR SPECIFICATIONS</h1>
-            <table id="carspecstable">
+            <div id="carspecstable">
               <tr>
                 <th>PROPERTY</th>
                 <th>VALUE</th>
               </tr>
-              <tr v-for="(value,index) in car.Specifications" :key="index">
-                <td class="head-td">{{value.name}}</td>
-                <td>{{value.value}}</td>
+              <tr v-for="(value, index) in car.Specifications" :key="index">
+                <td>{{ value.name }}:</td>
+                <td>{{ value.value }}</td>
               </tr>
-            </table>
+            </div>
           </div>
           <!-- Team-Description -->
           <div class="col-md-6">
             <h1>THE TEAM</h1>
             <div class="team_mem">
-              <div class="row" v-for="(member,index) in car.Team" :key="index">
-                <div class="col-7">
-                  <span class="desig">{{ member.designation}}</span>
-                </div>
-                <div class="col-5">
-                  <span class="value">{{ member.name }}</span>
-                </div>
-              </div>
+              <tr v-for="(member, index) in car.Team" :key="index">
+                <td>{{ member.designation }}</td>
+                <td>{{ member.name }}</td>
+              </tr>
             </div>
           </div>
 
-          <div class="col-sm-12">
+          <div id="glory-box" class="col-md-12">
             <h1>GLORIES AND ACHIEVEMENTS</h1>
-            <ul class="points"></ul>
           </div>
         </div>
       </div>
@@ -66,7 +53,7 @@ import store from "@/store.js";
 export default {
   data() {
     return {
-      car:null
+      car: null
     };
   },
   props: {
@@ -75,39 +62,71 @@ export default {
       required: true
     }
   },
-  created(){
-      this.car = store.cars.find( car =>car.name === this.carName )
-    }
-  
+  created() {
+    this.car = store.cars.find(car => car.name === this.carName);
+  }
 };
 </script>
 
 <style scoped>
-.image-box{
-  margin:auto;
-  width: fit-content;
-  padding: 30px;
+main {
+  margin-top: 100px;
 }
-.name{
+td,
+th {
+  padding: 12px;
+}
+.image-box {
+  margin: auto;
+  width: fit-content;
+  padding: 10px;
+}
+.image-box img {
+  margin: auto;
+  display: block;
+  max-width: 350px;
+  width: 80%;
+}
+h1{
+  text-align: center;
+}
+.name {
   margin: auto;
   width: fit-content;
   font: 22px rgb(22, 22, 22);
   margin-bottom: 3rem;
 }
-.col-md-12,.row{
+.col-md-12,
+.row {
   max-width: 100vw !important;
   padding: 0;
   margin: 0;
 }
-.col-md-6> h1{
+.col-md-6 > h1 {
   text-align: center;
-  padding:30px 0;
+  padding: 30px 0;
 }
-#carspecstable tr{
+tr {
   display: flex;
-
+  justify-content: space-evenly;
 }
-#carspecstable tr th,#carspecstable tr td{
-  flex-basis: 40% 40%;
+ tr:nth-of-type(odd) {
+  background-color: beige;
+}
+tr th,
+tr td {
+  flex-basis: 45%;
+}
+#glory-box{
+  margin: 50px 0;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  .container{
+    padding: 0;
+  }
 }
 </style>
