@@ -13,7 +13,7 @@
       <!-- <div class="container"> -->
       <section id="cars-sae">
         <div class="row">
-          <div class="col-md-6 col-sm-12" v-for="car in cars" :key="car.id">
+          <div class="col-md-6 col-sm-12" v-for="car in cars" :key="car.id" >
             <div class="image-box">
               <router-link :to="{ name:'CarModel', params:{ carName:car.name }}">
                 <img :src="require(`@/assets/images/car_images/${car.image}`)" />
@@ -23,6 +23,18 @@
               <router-link :to="{ name:'CarModel',params:{ carName:car.name }}">
                 <h2>{{ car.name }}</h2>
               </router-link>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="image-box">
+              <div>
+                <img :src="require(`@/assets/images/car_images/${upcomingCar.image}`)" />
+              </div>
+            </div>
+            <div class="name name-center">
+              <div>
+                <h2>{{ upcomingCar.name }}</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -114,14 +126,14 @@ export default {
           link: "cars/zfr-4.1",
           name: "ZFR 4.1",
           id: 5
-        },
-        {
+        }
+      ],
+      upcomingCar:{
           image: "coming_soon.jpg",
           link: "cars/zfr-5.0",
           name: "ZFR 5.0",
           id: 6
-        }
-      ],
+        },
       sponsors: [
         "https://www.marshall.edu/it/files/mathworks-logo.jpg",
         "https://yt3.ggpht.com/a/AGF-l79atE0GzZ5jy-Fmio_r6gz6xdXY3N4NwPb8Og=s900-c-k-c0xffffffff-no-rj-mo",
@@ -195,7 +207,6 @@ h2.text-block{
 }
 .name {
   text-align: center;
-  color: purple;
   margin: auto;
   padding: 12px;
   margin-bottom: 5%;
@@ -204,7 +215,6 @@ h2.text-block{
 }
 .name h1 {
   text-decoration: none;
-  color: purple;
   cursor: default;
   margin-top: 2%;
   font-weight: 600;
@@ -213,7 +223,7 @@ h2.text-block{
   text-decoration: none;
   /* color: white; */
 }
-.name a h2 {
+.name a h2,.name div h2 {
   font-size: 2.2em;
   font-weight: bolder;
   color: #000;
@@ -221,7 +231,6 @@ h2.text-block{
 
 .col-md-6 h1 {
   text-align: center;
-  color: navy;
   font-size: 2.2em;
 }
 
@@ -241,32 +250,14 @@ th {
 tr:nth-child(even) {
   background-color: #ddd;
 }
-.head-td {
-  font-weight: bold;
-}
-.desig {
-  font-weight: bold;
-}
-.team_mem .row {
-  /* font-size: 1.5em; */
-
-  margin-bottom: 3%;
-}
-.team_mem {
-  margin-top: 5%;
-  text-align: left;
-}
 .col-md-12 {
   padding: 0;
 }
-#carspecstable {
-  margin-top: 5%;
-}
+
 .col-sm-12 {
   padding: 4%;
 }
 .col-sm-12 h1 {
-  color: navy;
   font-size: 2.2em;
   text-align: center;
 }
