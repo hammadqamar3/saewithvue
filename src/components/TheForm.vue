@@ -7,15 +7,18 @@
       <form action="https://formspree.io/mvogvvgj" method="POST">
         <div>
           <label for="message">Query :</label>
-          <textarea name="message" placeholder="Message" minlength="1" rows="4" required></textarea>
+          <textarea name="message" placeholder="Message" minlength="1" rows="4" oninvalid="this.setCustomValidity('Please Enter Your question.')"
+ oninput="setCustomValidity('')" required></textarea>
         </div>
         <div>
           <label for="name">Name :</label>
-          <input type="text" name="name" minlength="1" placeholder="Your name" required />
+          <input type="text" name="name" minlength="1" placeholder="Your name" oninvalid="this.setCustomValidity('Please Enter Your Name')"
+ oninput="setCustomValidity('')" required />
         </div>
         <div>
           <label for="email">Email :</label>
-          <input type="email"  name="email" placeholder="Your Email" required/>
+          <input type="email"  name="email" placeholder="Your Email" oninvalid="this.setCustomValidity('Please provide valid email')"
+ oninput="setCustomValidity('')" required/>
         </div>
         <div id="button-setter">
           <button type="submit">
