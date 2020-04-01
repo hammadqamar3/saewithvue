@@ -6,9 +6,9 @@
         <ol class="carousel-indicators">
           <li
             data-target="#carouselExampleCaptions"
-            v-for="number in 5"
-            :key="number"
-            :data-slide-to="number - 1"
+            v-for="(image,index) in carouselImage"
+            :key="index"
+            :data-slide-to="index - 1"
           ></li>
         </ol>
         <div class="carousel-inner">
@@ -228,7 +228,7 @@ export default {
   },
   data() {
     return {
-      carouselImage: ["1.jpeg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
+      carouselImage: ["2.jpg", "3.jpg", "4.jpg", "5.jpg"],
       details: [
         {
           icon: "flag.png",
