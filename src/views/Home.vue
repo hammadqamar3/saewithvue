@@ -8,15 +8,15 @@
             data-target="#carouselExampleCaptions"
             v-for="number in 5"
             :key="number"
-            :data-slide-to="number-1"
+            :data-slide-to="number - 1"
           ></li>
         </ol>
         <div class="carousel-inner">
           <div
             class="carousel-item"
-            v-for="(image,index) in carouselImage"
+            v-for="(image, index) in carouselImage"
             :key="index"
-            :class="[index === 1?'active':'']"
+            :class="[index === 1 ? 'active' : '']"
           >
             <img
               :src="require(`@/assets/images/carousel/${image}`)"
@@ -42,10 +42,10 @@
     <section id="description-zfr">
       <header class="some-headings">About Zhcet Formula Racing</header>
       <article class="about-text">
-        ZHCET FORMULA RACING is a formula
-        racing team of 40 quite hard working and
-        passionate undergraduate engineering students from Aligarh Muslim University who ideate, design, fabricate
-        and test a formula style race car and participate in various National as well as International formula
+        ZHCET FORMULA RACING is a formula racing team of 40 quite hard working
+        and passionate undergraduate engineering students from Aligarh Muslim
+        University who ideate, design, fabricate and test a formula style race
+        car and participate in various National as well as International formula
         student competitions.
       </article>
     </section>
@@ -54,7 +54,7 @@
         <div class="some-headings">Social media updates</div>
       </div>
       <div id="page-container">
-        <div class="first">
+        <!-- <div class="first">
           <div id="insta-container">
             <iframe
               src="//lightwidget.com/widgets/a783dbf4dca95e0ea5eec31e206ec03f.html"
@@ -63,7 +63,7 @@
               style="width:100%;height:500px;border:0;overflow:hidden;"
             ></iframe>
           </div>
-        </div>
+        </div>-->
         <div class="second">
           <div id="fb-page12">
             <div
@@ -72,16 +72,94 @@
               data-tabs="timeline"
               data-width="500"
               data-height="500"
-              data-small-header="false"
+              data-small-header="true"
               data-adapt-container-width="true"
-              data-hide-cover="false"
+              data-hide-cover="true"
               data-show-facepile="true"
             >
               <blockquote
                 cite="https://www.facebook.com/ZHCETFormulaRacing/"
                 class="fb-xfbml-parse-ignore"
               >
-                <a href="https://www.facebook.com/ZHCETFormulaRacing/">ZHCET Formula Racing</a>
+                <a
+                  style="color:indianred"
+                  target="_blank"
+                  href="https://www.facebook.com/ZHCETFormulaRacing/"
+                >
+                  Facebook page Loading
+                  <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 57 57"
+                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="black"
+                  >
+                    <g fill="indianred" fill-rule="evenodd">
+                      <g transform="translate(1 1)" stroke-width="2">
+                        <circle cx="5" cy="50" r="5">
+                          <animate
+                            attributeName="cy"
+                            begin="0s"
+                            dur="2.2s"
+                            values="50;5;50;50"
+                            calcMode="linear"
+                            repeatCount="indefinite"
+                          />
+                          <animate
+                            attributeName="cx"
+                            begin="0s"
+                            dur="2.2s"
+                            values="5;27;49;5"
+                            calcMode="linear"
+                            repeatCount="indefinite"
+                          />
+                        </circle>
+                        <circle cx="27" cy="5" r="5">
+                          <animate
+                            attributeName="cy"
+                            begin="0s"
+                            dur="2.2s"
+                            from="5"
+                            to="5"
+                            values="5;50;50;5"
+                            calcMode="linear"
+                            repeatCount="indefinite"
+                          />
+                          <animate
+                            attributeName="cx"
+                            begin="0s"
+                            dur="2.2s"
+                            from="27"
+                            to="27"
+                            values="27;49;5;27"
+                            calcMode="linear"
+                            repeatCount="indefinite"
+                          />
+                        </circle>
+                        <circle cx="49" cy="50" r="5">
+                          <animate
+                            attributeName="cy"
+                            begin="0s"
+                            dur="2.2s"
+                            values="50;50;5;50"
+                            calcMode="linear"
+                            repeatCount="indefinite"
+                          />
+                          <animate
+                            attributeName="cx"
+                            from="49"
+                            to="49"
+                            begin="0s"
+                            dur="2.2s"
+                            values="49;5;27;49"
+                            calcMode="linear"
+                            repeatCount="indefinite"
+                          />
+                        </circle>
+                      </g>
+                    </g>
+                  </svg>
+                </a>
               </blockquote>
             </div>
           </div>
@@ -102,9 +180,9 @@
       <div class="parts">
         <section
           class="wrapper"
-          v-for="(item,index) in details"
+          v-for="(item, index) in details"
           :key="index"
-          :class="[index === 1?'alter-grid':'']"
+          :class="[index === 1 ? 'alter-grid' : '']"
         >
           <div class="grid-text">
             <div class="icon">
@@ -115,11 +193,13 @@
             <header class="heading-text">{{ item.heading }}</header>
             <article class="body-text">{{ item.body }}</article>
             <div class="link">
-              <router-link :to="{ name:`${item.link}` }">
+              <router-link :to="{ name: `${item.link}` }">
                 <span>
                   Know more
                   <img
-                    :src="require('@/assets/icons/home_icons/chevron-solid.svg')"
+                    :src="
+                      require('@/assets/icons/home_icons/chevron-solid.svg')
+                    "
                     class="chevron-solid"
                   />
                 </span>
@@ -178,12 +258,15 @@ export default {
       ]
     };
   },
-  mounted(){
-    let scriptAdder = document.createElement('script')
-    scriptAdder.setAttribute('src','https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0')
-    scriptAdder.setAttribute('crossorigin','anonymous')
-    scriptAdder.setAttribute('defer','')
-    document.head.appendChild(scriptAdder)
+  mounted() {
+    let scriptAdder = document.createElement("script");
+    scriptAdder.setAttribute(
+      "src",
+      "https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0"
+    );
+    scriptAdder.setAttribute("crossorigin", "anonymous");
+    scriptAdder.setAttribute("defer", "");
+    document.head.appendChild(scriptAdder);
   }
 };
 </script>
@@ -224,7 +307,13 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
+blockquote {
+  text-align: center;
+}
+blockquote svg {
+  position: relative;
+  top: 5px;
+}
 .bd-example {
   margin-top: 68.25px;
   position: relative;
@@ -288,7 +377,7 @@ p {
 .grid-text {
   width: 100%;
   min-height: 400px;
-  padding: 2.2em;
+  padding: 2.2em 0;
 }
 
 .grid-text > div {
@@ -351,20 +440,40 @@ article {
   display: grid;
   margin: 5%;
   padding-top: 0;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 5%;
+  grid-template-columns: 1fr;
+  /* grid-column-gap: 5%; */
 }
 
 #fb-page12 {
   max-width: 500px;
-  width: 40vw;
+  width: 50vw;
   margin: auto;
 }
 
-#social-block {
-  border: 2px outset grey;
-  margin: 0 2%;
+#social-block .some-headings {
+  margin: 5% 0;
+  padding: 3rem 0;
+  background-color: indianred;
+  position: relative;
 }
+#social-block .some-headings::after,
+#social-block .some-headings::before {
+  content: "";
+  position: absolute;
+  background-color: indianred;
+  height: 45px;
+  width: 10.4%;
+  bottom: -9px;
+}
+#social-block .some-headings::before {
+  left: 50%;
+  transform: translateX(-100%) skewY(12deg);
+}
+#social-block .some-headings::after {
+  right: 50%;
+  transform: translateX(99%) skewY(-12deg);
+}
+
 .some-headings {
   text-align: center;
   font: 600 2.59em Domine;
@@ -385,9 +494,9 @@ article {
 }
 
 #youtube-box {
-  margin: 8% 0;
+  margin: 8%;
   overflow: hidden;
-  background: beige;
+  background: indianred;
 }
 
 #youtube-player {
@@ -399,10 +508,10 @@ article {
 #youtube-player iframe {
   margin: auto;
   display: block;
-  width: 60vw;
+  width: 80vw;
   min-width: 280px;
   min-height: 200px;
-  height: calc(50vw * (562 / 1000));
+  height: calc(60vw * (562 / 1000));
 }
 
 @media screen and (min-width: 700px) {
@@ -412,13 +521,27 @@ article {
 }
 
 @media screen and (max-width: 767px) {
+  #social-block .some-headings::after,
+  #social-block .some-headings::before {
+    content: "";
+    position: absolute;
+    background-color: indianred;
+    height: 30px;
+    width: 10%;
+    min-width: 50px;
+    bottom: -3px;
+  }
   .wrapper {
     display: grid;
     grid-template-columns: 1fr;
     min-height: 200px;
     grid-column-gap: 30px;
   }
-
+  #social-block .some-headings {
+    margin: 8% 0;
+    padding: 8% 0;
+    background-color: indianred;
+  }
   #fb-page12 {
     width: 85vw;
     margin: auto;
@@ -429,7 +552,7 @@ article {
     grid-template-columns: 1fr;
   }
   .grid-text {
-    padding: 1.6em;
+    padding: 1.6em 1em;
   }
   .grid-text > * {
     padding: 12px 0;
@@ -442,7 +565,7 @@ article {
   .some-headings,
   .wrapper .heading-text {
     margin-top: 20px;
-    font-size: 1.7em;
+    font-size: 1.8em;
   }
 
   .wrapper {

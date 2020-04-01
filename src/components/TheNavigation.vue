@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg" id="navbar">
     <div class="container container-nav" id="contain">
       <router-link class="navbar-brand" :to="{ name: 'Home'}">
-        <img src="../assets/icons/nav_icons/logo.png" alt="logo" id="logo" />
+        <img src="../assets/icons/nav_icons/logo2.png" alt="logo" id="logo" />
       </router-link>
       <button @click="toggleHamburger"
         class="navbar-toggler"
@@ -64,6 +64,7 @@ export default {
   data() {
     return {
       openClass: true,
+      window: window,
       navList: [
         {
           name: "Home",
@@ -100,6 +101,7 @@ export default {
 </script>
 
 <style scoped>
+
 #nav-icon2 {
   width: 40px;
   height: 45px;
@@ -114,8 +116,6 @@ export default {
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
-}
-#nav-icon2 {
 }
 
 #nav-icon2 span {
