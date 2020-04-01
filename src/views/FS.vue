@@ -170,7 +170,7 @@ export default {};
 main {
   padding: 1px 0;
   background: linear-gradient(rgba(0, 0, 0, 0.898), rgba(0, 0, 0, 0.61)),
-    url("../assets/images/background/formula_background.jpg") no-repeat center center;
+    url("../assets/images/background/fb.jpg") no-repeat center center;
   background-size: cover;
 }
 #formula_head {
@@ -229,5 +229,11 @@ main {
   text-align: center;
   border-left: 3px solid goldenrod;
   padding-left: 2%;
+}
+@media screen and (max-width: "768px"){
+  main{
+    background: linear-gradient(rgba(0, 0, 0, 0.898), rgba(0, 0, 0, 0.61)),
+    url("../assets/images/background/fb.r.jpg") no-repeat center center;
+  }
 }
 </style>

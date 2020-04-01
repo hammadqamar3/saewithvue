@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg" id="navbar">
     <div class="container container-nav" id="contain">
       <router-link class="navbar-brand" :to="{ name: 'Home'}">
-        <img src="../assets/icons/nav_icons/logo2.png" alt="logo" id="logo" />
+        <img src="../assets/icons/nav_icons/logo.png" alt="logo" id="logo" />
       </router-link>
       <button @click="toggleHamburger"
         class="navbar-toggler"

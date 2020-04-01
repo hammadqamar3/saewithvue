@@ -3,8 +3,6 @@ import Clipboard from "v-clipboard";
 import App from "./App.vue";
 import router from "./router";
 
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import "../src/assets/css/general.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";

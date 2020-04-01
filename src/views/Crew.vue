@@ -386,7 +386,7 @@ export default {
 
 <style scoped>
 main {
-  background-image: url("../assets/images/background/ABB-Formula-E-Michelin-a-presente-le-nouveau-MICHELIN-Pilot-Sport.jpg");
+  background-image: url("../assets/images/background/carback.jpg");
   background-size: 100vw 100vh;
   background-attachment: fixed;
   position: relative;
@@ -540,6 +540,9 @@ main > div {
   background: linear-gradient(45deg, #1f171c, rgb(87, 40, 40), #1f171c);
 }
 @media screen and (max-width: 991px) {
+  main{
+    background-image: url("../assets/images/background/carback.r.jpg");
+  }
   #zfr5 {
     top: -60px;
   }
