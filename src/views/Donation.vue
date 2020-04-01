@@ -97,7 +97,7 @@ button::after{
   opacity: 0;
   font-weight: 900;
   bottom: 5px;
-  
+  padding-left: 5px;
 }
 .detailsInline:hover button{
    background: #1e928c; 
@@ -200,9 +200,12 @@ li {
   li {
     padding-left: 0;
   }
-  .copyIcon {
-    padding: 6px;
-  }
+  .detailsInline:hover .copyIcon{
+  /* transition: margin-top 0.3s linear; */
+  position: relative;
+  top: 5px;
+  padding: 6px;
+}
   .donation-body > * {
     flex-basis: 70% !important;
     margin: 40px 0;
