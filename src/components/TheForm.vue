@@ -6,13 +6,16 @@
     <div id="form-container">
       <form action="https://formspree.io/mvogvvgj" method="POST">
         <div>
-          <textarea name="message" placeholder="Message" rows="4"></textarea>
+          <label for="message">Query :</label>
+          <textarea name="message" placeholder="Message" minlength="1" rows="4" required></textarea>
         </div>
         <div>
-          <input type="text" name="name" placeholder="Your name" />
+          <label for="name">Name :</label>
+          <input type="text" name="name" minlength="1" placeholder="Your name" required />
         </div>
         <div>
-          <input type="email" name="email" placeholder="Your Email" />
+          <label for="email">Email :</label>
+          <input type="email"  name="email" placeholder="Your Email" required/>
         </div>
         <div id="button-setter">
           <button type="submit">
@@ -89,7 +92,9 @@ form {
 form > div {
   padding: 5% 0;
 }
-
+label{
+  font-weight: 600;
+}
 form input {
   padding: 5%;
   width: 100%;
