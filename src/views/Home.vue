@@ -16,13 +16,12 @@
             class="carousel-item"
             v-for="(image, index) in carouselImage"
             :key="index"
-            :class="[index === 1 ? 'active' : '']"
+            :class="[index === 0 ? 'active' : '']"
           >
-            <img
-              :src="require(`@/assets/images/carousel/${image}`)"
-              class="d-block w-100"
-              alt="zhcet formula racing team"
-            />
+            <picture >
+                <source type="image/webp" :srcset="require(`@/assets/images/carousel/${image}.webp`)" />
+                <img class="d-block w-100" :src="require(`@/assets/images/carousel/${image}.jpg`)" alt="zfr">
+            </picture>
           </div>
         </div>
       </div>
@@ -208,7 +207,10 @@
           </div>
           <div class="grid-image">
             <div class="image-container">
-              <img :src="require(`@/assets/images/home_images/${item.image}`)" />
+              <picture >
+                <source type="image/webp" :srcset="require(`@/assets/images/home_images/${item.webp}`)" />
+                <img :src="require(`@/assets/images/home_images/${item.image}`)" alt="zfr">
+            </picture>
             </div>
           </div>
         </section>
@@ -228,7 +230,7 @@ export default {
   },
   data() {
     return {
-      carouselImage: ["2.jpg", "3.jpg", "4.jpg", "5.jpg"],
+      carouselImage: ["2", "3", "4", "5"],
       details: [
         {
           icon: "flag.png",
@@ -237,7 +239,8 @@ export default {
               student is a global showdown which challenges the university undergraduates to combine hands on practical
               appliances along with project management skills.`,
           link: "FS",
-          image: "formulastudent.jpg"
+          image: "formulastudent.jpg",
+          webp: "formulastudent.webp"
         },
         {
           icon: "car.png",
@@ -245,7 +248,8 @@ export default {
           body: `Till now our club has made 4 cars out of which ZFR4.0 is latest and we are working on
               ZFR5.0`,
           link: "Cars",
-          image: "collage.jpg"
+          image: "collage.jpg",
+          webp:"collage.webp"
         },
         {
           icon: "mechanic.png",
@@ -253,6 +257,7 @@ export default {
           body:
             "Meet the students who AMU, who are working day and night to make zfr better.",
           image: "team.jpeg",
+          webp:"team.webp",
           link: "Crew"
         }
       ]
