@@ -1,21 +1,43 @@
 <template>
-    <main >
-		<div class="sponsor-container">
-			<!-- Start WOWSlider.com -->
-			<iframe src="wowslider.html"
-				style="width:830px;height:360px;max-width:100%;overflow:hidden;border:none;padding:0;margin:0 auto;margin-top: 80px;margin-bottom:10px;display:block;"
-				marginheight="0" marginwidth="0"></iframe>
-			<!-- End WOWSlider.com -->
-		</div>
-	</main>
+  <main>
+    <section class="heading">
+      <h1>Our Sponsors</h1>
+    </section>
+    <section id="container">
+      <div class="imageBox" v-for="item in 16" :key="item">
+        <img :src="require(`@/assets/logos/${item}.png`)" alt="Sponsor image" />
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {};
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+main {
+  margin: 80px 0;
+}
+.heading h1 {
+  font-family: fantasy;
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 2em 0;
+  padding: 15px;
+}
+#container {
+  display: grid;
+  grid-template-columns: 20% 20% 20%;
+  grid-gap: 30px 20px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+.image {
+  height: 150px;
+  width: 150px;
+  border: 1px solid black;
+}
 </style>
