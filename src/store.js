@@ -1,10 +1,10 @@
 export default {
     cars: [{
             name: "ZFR 1.0",
-            image:"zfr1.jpg",
+            image: "zfr1.jpg",
             Specifications: [{
                     name: "Chassis ",
-                    value: "Tabular Space Frame (AISI-4130 Steel round)"
+                    value: "Tubular Space Frame (Mild Steel round)"
                 },
                 {
                     name: "Power",
@@ -16,7 +16,7 @@ export default {
                 },
                 {
                     name: "Bodyworks",
-                    value: "CFRP"
+                    value: "FRP"
                 },
                 {
                     name: "Engine",
@@ -44,77 +44,70 @@ export default {
                 }
             ],
             Team: [{
-                    designation: "Team Captain:  ",
-                    name: "Arpit upadhyaya"
-                },
-                {
-                    designation: "Vehicle Dynamics Lead:",
-                    name: "Mohammad Faraz"
-                },
-                {
-                    designation: "Vehicle Dynamics team member:",
-                    name: "Faizan Anwar"
-                },
-                {
-                    designation: "Vehicle Dynamics team member:",
-                    name: "Aasim Noor"
-                },
-                {
-                    designation: "Vehicle Dynamics team member:",
-                    name: "Aayush Mittal"
-                },
-                {
-                    designation: "Chassis Lead:",
-                    name: "Irfan Ahmed"
-                },
-                {
-                    designation: "Chassis team member:",
-                    name: "Wamiq Hashmi"
-                },
-                {
-                    designation: "Chassis team member:",
-                    name: "Areeb Mahmood"
-                },
-                {
-                    designation: "Power Train Lead:",
-                    name: "Anchal Varshney"
-                },
-                {
-                    designation: "Power Train team member:",
-                    name: "Mehul Varshney"
-                },
-                {
-                    designation: "Power Train team member:",
-                    name: "Arpit upadhyaya"
-                },
-                {
-                    designation: "Power Train team member:",
-                    name: "Mridul"
-                },
-                {
-                    designation: "Power Train team member:",
-                    name: "Hamza Khan"
-                },
-                {
-                    designation: "Electronics Lead:",
-                    name: "Hamza"
-                },
-                {
-                    designation: "Electronics team member:",
-                    name: "Subham Varshney"
-                },
-                {
-                    designation: "Team Manager:",
-                    name: "Aman Agarwal"
-                }
-            ]
+                "designation": "Mechanical",
+                "name": "Abhishek Pathak"
+            }, {
+                "designation": "Mechanical",
+                "name": "Meraj Ahmad"
+            }, {
+                "designation": "Mechanical",
+                "name": "Shashank Gupta"
+            }, {
+                "designation": "Mechanical",
+                "name": "Prashant Singh"
+            }, {
+                "designation": "Mechanical",
+                "name": "Ishan Sharma"
+            }, {
+                "designation": "Mechanical",
+                "name": "Pushkin Mittal"
+            }, {
+                "designation": "Mechanical",
+                "name": "Prasenjit Tomar"
+            }, {
+                "designation": "Mechanical",
+                "name": "Kushagra Kumar"
+            }, {
+                "designation": "Mechanical",
+                "name": "Rahul Sharma"
+            }, {
+                "designation": "Electronics",
+                "name": "Himank Gulati"
+            }, {
+                "designation": "Electronics",
+                "name": "Sahil Abbas Zaidi"
+            }, {
+                "designation": "Mechanical",
+                "name": "Chandresh Gandhi"
+            }, {
+                "designation": "Mechanical",
+                "name": "Prateek Goyal"
+            }, {
+                "designation": "Electronics",
+                "name": "Tushar Singhal"
+            }, {
+                "designation": "Mechanical",
+                "name": "Mehul Varshney"
+            }, {
+                "designation": "Mechanical",
+                "name": "Mohd. Afzal Shadab"
+            }, {
+                "designation": "Mechanical",
+                "name": "Arpit Upadhyay"
+            }, {
+                "designation": "Mechanical",
+                "name": "Ayush Mittal"
+            }, {
+                "designation": "Mechanical",
+                "name": "Irfan Khan"
+            }]
         },
         {
             name: "ZFR 2.0",
-            image:"zfr2.jpg",
+            image: "zfr2.jpg",
             Specifications: [{
                 "name": "Chassis ",
-                "value": "Tabular Space Frame (AISI-4130 Steel round)"
+                "value": "Tubular Space Frame (AISI-4130 Steel round)"
             }, {
                 "name": "Power",
                 "value": "22.11 BHP @9300 rpm"
@@ -192,16 +185,16 @@ export default {
                 "designation": "Team Manager:",
                 "name": "Aman Agarwal"
             }, {
-                "designation": "Team Captain:  ",
+                "designation": "Team Captain:  ",
                 "name": "Arpit upadhyaya"
             }]
         },
         {
             name: "ZFR 3.0",
-            image:"zfr3.jpg",
+            image: "zfr3.jpg",
             Specifications: [{
                 "name": "Chassis",
-                "value": "Tabular Space Frame (AISI-4130 Steel round)"
+                "value": "Tubular Space Frame (AISI-4130 Steel round)"
             }, {
                 "name": "Power",
                 "value": "22.11 BHP @9300 rpm"
@@ -231,7 +224,7 @@ export default {
                 "value": "Self Designed and Fabricated Cooling System"
             }],
             Team: [{
-                "designation": "Team Captain:  ",
+                "designation": "Team Captain:  ",
                 "name": "Arpit upadhyaya"
             }, {
                 "designation": "Vehicle Dynamics Lead:",
@@ -279,16 +272,16 @@ export default {
                 "designation": "Team Manager:",
                 "name": "Aman Agarwal"
             }, {
-                "designation": "Team Captain:  ",
+                "designation": "Team Captain:  ",
                 "name": "Arpit upadhyaya"
             }]
         },
         {
             name: "ZFR 4.0",
-            image:"zfr4.jpg",
+            image: "zfr4.jpg",
             Specifications: [{
                 "name": "Chassis",
-                "value": "Tabular Space Frame (AISI-4130 Steel round)"
+                "value": "Tubular Space Frame (AISI-4130 Steel round)"
             }, {
                 "name": "Power",
                 "value": "22.11 BHP @9300 rpm"
@@ -381,7 +374,7 @@ export default {
         },
         {
             name: "ZFR 4.1",
-            image:"zfr4.1.jpg",
+            image: "zfr4.1.jpg",
             Specifications: [],
             Team: [{
                 "designation": "Team Captain:",
@@ -438,7 +431,7 @@ export default {
         },
         {
             name: "ZFR 5.0",
-            image:"zfr5.jpg",
+            image: "zfr5.jpg",
             Specifications: [{
                 "name": "Chassis",
                 "value": "Tabular Space Frame (AISI-4130 Steel round)"
