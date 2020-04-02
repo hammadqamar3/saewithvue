@@ -38,7 +38,7 @@
 
           <ul class="list-unstyled list-inline">
             <li class="list-inline-item" v-for="car in cars" :key="car.name">
-              <router-link :to="car.link">{{ car.name }}</router-link> |
+              <router-link class="linkCars" :to="car.link">{{ car.name }}</router-link> |
             </li>
 
           </ul>
@@ -153,6 +153,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

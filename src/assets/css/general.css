@@ -76,11 +76,11 @@ nav {
 .nav-link:hover,
 .list-inline-item:hover a,
 .list-unstyled li:hover a {
-    color: rgb(180, 0, 0);
+    color: #d4d4d4;
 }
 
 .nav-link:hover span {
-    color: rgb(180, 0, 0);
+    color: #d4d4d4;
 }
 
 .nav-link span {
@@ -142,12 +142,12 @@ footer {
     position: relative;
     z-index: 1;
     margin-bottom: 0;
-    background-color: #343a40;
+    background-color: #282a2c;
     color: white;
 }
 
 .font-weight-bold {
-    color: crimson;
+    color: #ff4266;
     text-shadow: rgb(47, 17, 17) 1px 1px;
 }
 
@@ -199,7 +199,7 @@ footer a {
 }
 
 #developer>a{
-    color: crimson;
+    color: #ff36fa;
     text-decoration: none;
 }
 
@@ -216,6 +216,7 @@ footer a {
 }
 
 .navbar-toggler {
+    border:none;
     position: absolute;
     right: 10px;
     top: 0;
