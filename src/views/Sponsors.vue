@@ -40,4 +40,14 @@ main {
   width: 150px;
   border: 1px solid black;
 }
+@media screen and (max-width:768px){
+  #container{
+    grid-template-columns: 25% 25%;
+  }
+}
+@media screen and (max-width:425px){
+  #container{
+    grid-template-columns: 20%;
+  }
+}
 </style>
