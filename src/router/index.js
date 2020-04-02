@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
+import store from "@/store.js";
 
 const routes = [
   {
@@ -24,7 +25,19 @@ const routes = [
     component(){
       return import(/* webpackChunkName: "cars" */ "../views/CarModel.vue")
     },
-    props: true
+    props: true,
+    beforeEnter: (to, from, next) => {
+      const exist = store.cars.find(
+        car => to.params.carName === car.name
+      );
+      if (exist) {
+        next();
+      } else {
+        next({
+          name: "NotFound"
+        });
+      }
+    }
   },
   {
     path:"/crew",
@@ -53,10 +66,22 @@ const routes = [
     component(){
       return import(/* webpackChunkName: "donation" */ "../views/Donation.vue")
     }
+  },
+  {
+    path:"/404",
+    alias:'*',
+    name:"NotFound",
+    component() {
+      return import(
+        /* webpackChunkName: "Not found" */
+        "../views/NotFound.vue"
+      );
+    }
   }
 ];
 
 const router = new VueRouter({
+  mode: "history",
   scrollBehavior() {
     return { x: 0, y: 0 };
   },
