@@ -18,9 +18,13 @@
             :key="index"
             :class="[index === 0 ? 'active' : '']"
           >
-            <picture >
-                <source type="image/webp" :srcset="require(`@/assets/images/carousel/${image}.webp`)" />
-                <img class="d-block w-100" :src="require(`@/assets/images/carousel/${image}.jpg`)" alt="zfr">
+            <picture>
+              <source type="image/webp" :srcset="require(`@/assets/images/carousel/${image}.webp`)" />
+              <img
+                class="d-block w-100"
+                :src="require(`@/assets/images/carousel/${image}.jpg`)"
+                alt="zfr"
+              />
             </picture>
           </div>
         </div>
@@ -165,8 +169,13 @@
         </div>
       </div>
       <div id="youtube-box">
-        <div id="youtube-player">
+        <div @click="Iframe()" id="youtube-player">
+          <div v-if="!video" data-id="q6yPVslIujk">
+            <img id="thumbnail" src="https://i.ytimg.com/vi/q6yPVslIujk/hqdefault.jpg" />
+            <div class="play"></div>
+          </div>
           <iframe
+            v-if="video"
             src="https://www.youtube.com/embed/q6yPVslIujk?loop=1&rel=0&modestbranding=0$iv_load_policy=3"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -207,10 +216,13 @@
           </div>
           <div class="grid-image">
             <div class="image-container">
-              <picture >
-                <source type="image/webp" :srcset="require(`@/assets/images/home_images/${item.webp}`)" />
-                <img :src="require(`@/assets/images/home_images/${item.image}`)" alt="zfr">
-            </picture>
+              <picture>
+                <source
+                  type="image/webp"
+                  :srcset="require(`@/assets/images/home_images/${item.webp}`)"
+                />
+                <img :src="require(`@/assets/images/home_images/${item.image}`)" alt="zfr" />
+              </picture>
             </div>
           </div>
         </section>
@@ -230,6 +242,8 @@ export default {
   },
   data() {
     return {
+      v: null,
+      video: false,
       carouselImage: ["2", "3", "4", "5"],
       details: [
         {
@@ -249,7 +263,7 @@ export default {
               ZFR5.0`,
           link: "Cars",
           image: "collage.jpg",
-          webp:"collage.webp"
+          webp: "collage.webp"
         },
         {
           icon: "mechanic.png",
@@ -257,7 +271,7 @@ export default {
           body:
             "Meet the students who AMU, who are working day and night to make zfr better.",
           image: "team.jpeg",
-          webp:"team.webp",
+          webp: "team.webp",
           link: "Crew"
         }
       ]
@@ -272,6 +286,11 @@ export default {
     scriptAdder.setAttribute("crossorigin", "anonymous");
     scriptAdder.setAttribute("defer", "");
     document.head.appendChild(scriptAdder);
+  },
+  methods: {
+    Iframe() {
+      this.video = true;
+    }
   }
 };
 </script>
@@ -499,7 +518,7 @@ article {
 }
 
 #youtube-box {
-  margin: 8%;
+  margin: 100px 8%;
   overflow: hidden;
   background: indianred;
 }
@@ -507,16 +526,51 @@ article {
 #youtube-player {
   width: fit-content;
   margin: auto;
-  padding: 8px;
+  /* padding: 8px; */
+  position: relative;
 }
 
 #youtube-player iframe {
   margin: auto;
   display: block;
-  width: 80vw;
+  width: 75vw;
   min-width: 280px;
   min-height: 200px;
-  height: calc(60vw * (562 / 1000));
+  height: calc(75vw * (562 / 1000));
+}
+#youtube-player>div{
+  width: 75vw;
+  min-width: 280px;
+  min-height: 200px;
+  height: calc(75vw * (562 / 1000));
+}
+#youtube-player img {
+  display: block;
+  margin: auto;
+  position: absolute;
+  top:-17%;
+  height: 134%;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: 0.4s all;
+  -moz-transition: 0.4s all;
+  transition: 0.4s all;
+}
+
+#youtube-player img:hover {
+  -webkit-filter: brightness(75%);
+}
+
+#youtube-player .play {
+  width: 72px;
+  height: 72px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background: url("https://i.imgur.com/TxzC70f.png") no-repeat;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 700px) {
