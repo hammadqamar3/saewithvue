@@ -284,7 +284,7 @@ export default {
       "https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0"
     );
     scriptAdder.setAttribute("crossorigin", "anonymous");
-    scriptAdder.setAttribute("defer", "");
+    scriptAdder.setAttribute("async", "");
     document.head.appendChild(scriptAdder);
   },
   methods: {
