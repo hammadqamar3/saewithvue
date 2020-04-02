@@ -171,7 +171,7 @@
       <div id="youtube-box">
         <div @click="Iframe()" id="youtube-player">
           <div v-if="!video" data-id="q6yPVslIujk">
-            <img id="thumbnail" src="https://i.ytimg.com/vi/q6yPVslIujk/hqdefault.jpg" />
+            <img id="thumbnail" src="https://i.ytimg.com/vi/q6yPVslIujk/hqdefault.jpg" alt="yotube videos' thumbnail"/>
             <div class="play"></div>
           </div>
           <iframe
@@ -209,6 +209,7 @@
                       require('@/assets/icons/home_icons/chevron-solid.svg')
                     "
                     class="chevron-solid"
+                    alt="arrow to this page"
                   />
                 </span>
               </router-link>
