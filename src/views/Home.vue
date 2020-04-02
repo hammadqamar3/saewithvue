@@ -209,7 +209,7 @@
                       require('@/assets/icons/home_icons/chevron-solid.svg')
                     "
                     class="chevron-solid"
-                    alt="arrow to this page"
+                    :alt="`arrow to ${item.heading} page`"
                   />
                 </span>
               </router-link>
@@ -450,8 +450,8 @@ article {
   padding: 12px;
 }
 
-.grid-image .image-container img {
-  height: calc(50vw * (562 / 1000));
+.grid-image .image-container img{
+  height: calc(60vw * (562 / 1000));
   min-height: 200px;
   max-height: 400px;
   border-radius: 12px;
