@@ -8,7 +8,9 @@ import "../src/assets/css/general.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/src/jquery.js";
 import "bootstrap/dist/js/bootstrap.min.js";
-
+import VueLazyload from 'vue-lazyload';
+ 
+Vue.use(VueLazyload);
 Vue.config.productionTip = false;
 Vue.use(Clipboard);
 

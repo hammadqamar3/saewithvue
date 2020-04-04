@@ -5,7 +5,7 @@
     </section>
     <section id="container">
       <div class="imageBox" v-for="item in 16" :key="item">
-        <img :src="require(`@/assets/logos/${item}.png`)" alt="Sponsor image" />
+        <img v-lazy="require(`@/assets/logos/${item}.png`)" alt="Sponsor image" />
       </div>
     </section>
   </main>

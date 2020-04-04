@@ -19,7 +19,7 @@
             :class="[index === 0 ? 'active' : '']"
           >
             <picture>
-              <source type="image/webp" :srcset="require(`@/assets/images/carousel/${image}.webp`)" />
+              <source type="image/webp" v-lazy="require(`@/assets/images/carousel/${image}.webp`)" />
               <img
                 class="d-block w-100"
                 :src="require(`@/assets/images/carousel/${image}.jpg`)"
@@ -220,7 +220,7 @@
               <picture>
                 <source
                   type="image/webp"
-                  :srcset="require(`@/assets/images/home_images/${item.webp}`)"
+                  v-lazy="require(`@/assets/images/home_images/${item.webp}`)"
                 />
                 <img :src="require(`@/assets/images/home_images/${item.image}`)" alt="zfr" />
               </picture>

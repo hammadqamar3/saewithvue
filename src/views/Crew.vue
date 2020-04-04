@@ -26,7 +26,7 @@
             <div class="linksofmembers">
               <div v-for="(link,index) in captain.links" :key="index">
                 <a :href="link.link">
-                  <img :src="require(`@/assets/icons/team_icons/${link.image}`)" :alt="link.name" />
+                  <img v-lazy="require(`@/assets/icons/team_icons/${link.image}`)" :alt="link.name" />
                 </a>
               </div>
             </div>
@@ -48,7 +48,7 @@
             <div class="member">
               <div class="member-image">
                 <img
-                  :src="require(`@/assets/team images/team-members/${department.lead.image}`)"
+                  v-lazy="require(`@/assets/team images/team-members/${department.lead.image}`)"
                   alt
                 />
               </div>
@@ -62,7 +62,7 @@
               <div class="linksofmembers">
                 <div v-for="(link,index) in department.lead.links" :key="index">
                 <a :href="link.link">
-                  <img :src="require(`@/assets/icons/team_icons/${link.image}`)" :alt="link.name" />
+                  <img v-lazy="require(`@/assets/icons/team_icons/${link.image}`)" :alt="link.name" />
                 </a>
               </div>
               </div>
@@ -74,7 +74,7 @@
           <div v-for="member in department.members" :key="member.name">
             <div class="member">
               <div class="member-image">
-                <img :src="require(`@/assets/team images/team-members/${member.image}`)" alt />
+                <img v-lazy="require(`@/assets/team images/team-members/${member.image}`)" alt />
               </div>
 
               <div class="details">
@@ -85,7 +85,7 @@
                 <div class="linksofmembers">
                   <div v-for="(link,index) in member.links" :key="index">
                 <a :href="link.link">
-                  <img :src="require(`@/assets/icons/team_icons/${link.image}`)" :alt="link.name" />
+                  <img v-lazy="require(`@/assets/icons/team_icons/${link.image}`)" :alt="link.name" />
                 </a>
               </div>
                 </div>

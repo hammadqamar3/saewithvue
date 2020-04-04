@@ -16,7 +16,7 @@
           <div class="col-md-6 col-sm-12" v-for="car in cars" :key="car.id" >
             <div class="image-box">
               <router-link :to="{ name:'CarModel', params:{ carName:car.name }}">
-                <img :src="require(`@/assets/images/car_images/${car.image}`)" />
+                <img v-lazy="require(`@/assets/images/car_images/${car.image}`)" />
               </router-link>
             </div>
             <div class="name name-center">
@@ -28,7 +28,7 @@
           <div class="col-md-6 col-sm-12">
             <div class="image-box">
               <div>
-                <img :src="require(`@/assets/images/car_images/${upcomingCar.image}`)" />
+                <img v-lazy="require(`@/assets/images/car_images/${upcomingCar.image}`)" />
               </div>
             </div>
             <div class="name name-center">
@@ -45,15 +45,15 @@
         <h2 class="text-block">Gold Sponsors</h2>
         <div class="row sponsor">
           <div class="col-md-6" v-for="(sponsor,index) in sponsors" :key="index">
-            <img :src="sponsor" width="100%" height="100%" />
+            <img v-lazy="sponsor" width="100%" height="100%" />
           </div>
         </div>
       </div>
 
-      <div id="sidecar" :style="car">
+      <div v-if="screenSize" id="sidecar" :style="car">
         <img src="../assets/images/car_images/car.png" alt />
       </div>
-      <div id="sidecar-path">
+      <div v-if="screenSize" id="sidecar-path">
         <img id="path" src="../assets/images/car_images/path.jpg" alt />
       </div>
     </div>
@@ -96,6 +96,7 @@ export default {
       bodyHeight:null,
       pScrollpos:0,
       car: null,
+      screenSize:[screen.width>1023?true:false],
       cars: [
         {
           image: "zfr1.jpg",
