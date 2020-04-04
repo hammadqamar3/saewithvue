@@ -38,7 +38,7 @@
 
           <ul class="list-unstyled list-inline">
             <li class="list-inline-item" v-for="car in cars" :key="car.name">
-              <router-link class="linkCars" :to="car.link">{{ car.name }}</router-link> |
+              <router-link class="linkCars" :to="{ name:'CarModel',params:{ carName:car.name }} ">{{ car.name }}</router-link> |
             </li>
 
           </ul>
@@ -109,27 +109,21 @@ export default {
       address: "SAE zhcet,AMU,Aligarh,Uttar Pradesh,India",
       cars: [
         {
-          name: "ZFR 5.0",
-          link: "/cars/5.0"
+          name: "ZFR 5.0"
         },
         {
-          name: "ZFR 4.1",
-          link: "/cars/4.1"
+          name: "ZFR 4.1"
         },
         {
-          name: "ZFR 4.0",
-          link: "/cars/4.0"
+          name: "ZFR 4.0"
         },
-        { name: "ZFR 3.0",
-          link: "/cars/3.0" 
+        { name: "ZFR 3.0"
         },
         {
-          name: "ZFR 2.0",
-          link: "/cars/2.0"
+          name: "ZFR 2.0"
         },
         {
-          name: "ZFR 1.0",
-          link: "/cars/1.0"
+          name: "ZFR 1.0"
         }
       ],
       Social:[

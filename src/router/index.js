@@ -23,7 +23,7 @@ const routes = [
     path: "/model/:carName",
     name: "CarModel",
     component(){
-      return import(/* webpackChunkName: "cars" */ "../views/CarModel.vue")
+      return import(/* webpackChunkName: "carsModel" */ "../views/CarModel.vue")
     },
     props: true,
     beforeEnter: (to, from, next) => {
